@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+         function addToList() {
+             var select = document.getElementById("listOfNames2");
+        var selectedOptions = document.getElementById("listOfNames2").selectedOptions;
+
+       for(let i=0; i<selectedOptions.length; i++)
+       {
+          
+           console.log(selectedOptions[i].value);
+
+           let sel = document.getElementById("listOfNames");
+           let opt = document.createElement('Option');
+           opt.appendChild(document.createTextNode(selectedOptions[i].value));
+           
+           opt.value = selectedOptions[i].value;
+            sel.appendChild(opt);
+            select.remove(selectedOptions);
+
+       }
+        return false;
+      }
+      function addToList2() {
+        var selectedOptions = document.getElementById("listOfNames").selectedOptions;
+        var select = document.getElementById("listOfNames");
+
+       for(let i=0; i<selectedOptions.length; i++)
+       {
+
+           console.log(selectedOptions[i].value);
+
+           let sel = document.getElementById("listOfNames2");
+           let opt = document.createElement('Option');
+           opt.appendChild(document.createTextNode(selectedOptions[i].value));
+           
+           opt.value = selectedOptions[i].value;
+            sel.appendChild(opt);
+            select.remove(selectedOptions);
+
+       }
+        return false;
+      }
+    </script>
+
+    <title>Reverse String</title>
+  </head>
+  <body>
+    <form name="swapListForm" style="width: 600px ;display:flex;">
+      <select name="cars" id="listOfNames" multiple>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
+      <input
+        type="button"
+        onclick=" return addToList2()"
+        value="Add >>"
+        style="width:auto; margin: 20px;"
+      />
+      <input
+        type="button"
+        onclick=" return addToList()"
+        value="<<Add"
+        style="width:auto; margin: 20px;"
+      />
+      <select name="cars" id="listOfNames2" multiple>
+           
+          </select>
+      </ul>
+    </form>
+  </body>
+</html>
