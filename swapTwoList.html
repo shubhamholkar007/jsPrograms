@@ -4,44 +4,68 @@
     <link rel="stylesheet" href="style.css" />
     <script>
          function addToList() {
-             var select = document.getElementById("listOfNames2");
-        var selectedOptions = document.getElementById("listOfNames2").selectedOptions;
+        
+        var selectList = document.getElementById("listOfNames2");
 
-       for(let i=0; i<selectedOptions.length; i++)
-       {
-          
-           console.log(selectedOptions[i].value);
+        let list2 = document.getElementById("listOfNames");
+        let options  =  selectList.options;
 
-           let sel = document.getElementById("listOfNames");
-           let opt = document.createElement('Option');
-           opt.appendChild(document.createTextNode(selectedOptions[i].value));
-           
-           opt.value = selectedOptions[i].value;
-            sel.appendChild(opt);
-            select.remove(selectedOptions);
+        var removeIndex = [];
 
-       }
+        for(let i=0; i<options.length; i++)
+        {
+          if(options[i].selected)
+          {
+            console.log(i);
+
+            let opt = document.createElement('option');
+            opt.value = options[i].value;
+            opt.innerHTML = options[i].value;
+            list2.appendChild(opt);
+            removeIndex.push(i);
+            //selectList.remove(i);
+          }
+        }
+        removeIndex =  removeIndex.reverse();
+        console.log(removeIndex);
+
+        removeIndex.forEach(el => {
+            selectList.remove(el);
+        })
         return false;
       }
       function addToList2() {
-        var selectedOptions = document.getElementById("listOfNames").selectedOptions;
-        var select = document.getElementById("listOfNames");
+        
+        
+        var selectList = document.getElementById("listOfNames");
 
-       for(let i=0; i<selectedOptions.length; i++)
+        let list2 = document.getElementById("listOfNames2");
+
+        let options  =  selectList.options;
+
+        var removeIndex = [];
+
+       for(let i=0; i<options.length; i++)
        {
+          if(options[i].selected)
+          {
+            console.log(i);
 
-           console.log(selectedOptions[i].value);
-
-           let sel = document.getElementById("listOfNames2");
-           let opt = document.createElement('Option');
-           opt.appendChild(document.createTextNode(selectedOptions[i].value));
-           
-           opt.value = selectedOptions[i].value;
-            sel.appendChild(opt);
-            select.remove(selectedOptions);
-
+            let opt = document.createElement('option');
+            opt.value = options[i].value;
+            opt.innerHTML = options[i].value;
+            list2.appendChild(opt);
+            removeIndex.push(i);
+            //selectList.remove(i);
+          }
        }
-        return false;
+      removeIndex =  removeIndex.reverse();
+      console.log(removeIndex);
+
+       removeIndex.forEach(el => {
+            selectList.remove(el);
+       })
+          return false;
       }
     </script>
 
